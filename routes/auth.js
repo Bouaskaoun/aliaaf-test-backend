@@ -33,7 +33,11 @@ router.post('/login', async (req, res) => {
             }
         );
 
-        !user && res.status(401).json("Wrong User Name");
+        //!user && res.status(401).json("Wrong User Name");
+        if (!user) {
+            res.status(401).json("Wrong User Name");
+        }
+
 
         const hashedPassword = CryptoJS.AES.decrypt(
             user.password,
@@ -65,11 +69,5 @@ router.post('/login', async (req, res) => {
     }
 
 });
-
-//logout mongoose 
-router.get('/logout', (req, res) => {
-    res.status(200).json("You are logged out");
-});
-
 
 module.exports = router;

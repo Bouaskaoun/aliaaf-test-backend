@@ -7,6 +7,9 @@ const authRoute = require("./routes/auth");
 const productRoute = require("./routes/product");
 const cors = require("cors");
 
+// cors allorigins
+app.use(cors({ origin: "*" }));
+
 dotenv.config();
 
 mongoose
