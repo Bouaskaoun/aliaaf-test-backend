@@ -6,6 +6,7 @@ const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
 const productRoute = require("./routes/product");
 const cors = require("cors");
+MONGO_URL = 'mongodb+srv://aliaaf:aliaaf123@cluster0.lf8tbn3.mongodb.net/book?retryWrites=true&w=majority'
 
 // cors allorigins
 app.use(cors({ origin: "*" }));
@@ -13,7 +14,7 @@ app.use(cors({ origin: "*" }));
 dotenv.config();
 
 mongoose
-  .connect(process.env.MONGO_URL)
+  .connect(MONGO_URL)
   .then(() => console.log("DB Connection Successfull!"))
   .catch((err) => {
     console.log(err);
