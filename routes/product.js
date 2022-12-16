@@ -11,12 +11,25 @@ const router = require("express").Router();
 router.post("/", verifyTokenAndAdmin, async (req, res) => {
   const newProduct = new Product(req.body);
 
-  try {
-    const savedProduct = await newProduct.save();
-    res.status(200).json(savedProduct);
-  } catch (err) {
-    res.status(500).json(err);
-  }
+  // try {
+  //   const savedProduct = await newProduct.save();
+  //   res.status(200).json(savedProduct);
+  // } catch (err) {
+  //   res.status(500).json(err);
+  // }
+  await newProduct.save()
+    .then((result) => {
+      res.status(201).send({
+        message: "Product Created Successfully",
+        result,
+      });
+    })
+    .catch((error) => {
+      res.status(500).send({
+        message: "Error creating product",
+        error,
+      });
+    });
 });
 
 //UPDATE

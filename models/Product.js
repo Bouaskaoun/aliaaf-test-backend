@@ -7,8 +7,7 @@ const ProductSchema = new mongoose.Schema(
     img: { type: String, required: true },
     pdf: { type: String, required: true },
     category: { type: String, required: true },
-    author: { type: String, required: true },
-    
+    author: { type: String, required: true },    
   },
   { timestamps: true }
 );
