@@ -6,7 +6,6 @@ const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
 const productRoute = require("./routes/product");
 const cors = require("cors");
-//MONGO_URL = 'mongodb+srv://aliaaf:aliaaf123@cluster0.lf8tbn3.mongodb.net/book?retryWrites=true&w=majority'
 
 // cors allorigins
 app.use(cors({ origin: "*" }));
